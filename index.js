@@ -15,7 +15,7 @@ function cantScrollFurther(scrollingElement) {
 }
 
 function getNextHRefFromLink(link) {
-  const linkIsNext = (link.rel === 'next');
+  const linkIsNext = (link.rel.match(/next/i));
   const linkHasHRef = !!link.href;
   if (linkIsNext && linkHasHRef) {
     return link.href;

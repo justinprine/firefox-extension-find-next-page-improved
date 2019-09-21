@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.0",
+  "version": "1.0.1",
   "name": "Find next page",
   "description": "Go to the next page when pressing Space at the end of the page",
   "content_scripts": [
