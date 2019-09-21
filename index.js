@@ -11,7 +11,7 @@ function cantScrollFurther(scrollingElement) {
   
   const pageIsScrollable = (viewportHeight < scrollHeight);
   const cantScrollFurther = (lowestVisibleOffset === scrollHeight);
-  return (pageIsScrollable && cantScrollFurther);
+  return !pageIsScrollable ? true : cantScrollFurther;
 }
 
 function getNextHRefFromLink(link) {
