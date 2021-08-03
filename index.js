@@ -8,10 +8,13 @@ function cantScrollFurther(scrollingElement) {
   const scrollHeight = scrollingElement.scrollHeight;
   const viewportHeight = scrollingElement.clientHeight;
   const lowestVisibleOffset = scrollingElement.scrollTop + viewportHeight;
-  
+
   const pageIsScrollable = (viewportHeight < scrollHeight);
-  const cantScrollFurther = (lowestVisibleOffset === scrollHeight);
-  return (pageIsScrollable && cantScrollFurther);
+  if (!pageIsScrollable) {
+    return true;
+  }
+
+  return (lowestVisibleOffset === scrollHeight);
 }
 
 function getNextHRefFromLink(link) {
@@ -36,7 +39,7 @@ function goToNextHRef() {
   }
 }
 
-document.addEventListener('keypress', function(event) {
+document.addEventListener('keypress', function (event) {
   if (isScrollingSpaceEvent(event) && cantScrollFurther(document.scrollingElement)) {
     goToNextHRef();
   }
