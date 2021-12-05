@@ -14,7 +14,8 @@ function cantScrollFurther(scrollingElement) {
     return true;
   }
 
-  return (lowestVisibleOffset === scrollHeight);
+  const roundingError = 2;
+  return (lowestVisibleOffset + roundingError >= scrollHeight);
 }
 
 function getNextHRefFromLink(link) {
